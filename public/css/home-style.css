@@ -39,7 +39,9 @@ body {
   border-bottom: 1px solid #dfe3e8;
   border-radius: 0;
 }
-
+.logo{
+  border-radius: 15px;
+}
 .navbar .navbar-brand,
 .navbar .navbar-brand:hover,
 .navbar .navbar-brand:focus {
