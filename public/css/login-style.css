@@ -1,6 +1,10 @@
 body {
     font-family: "Varela Round", sans-serif;
-    background: #254e58;
+    background: #ffffff;
+    background-image: url('/img/bg1.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
   }
   
   ::-webkit-scrollbar {
@@ -31,7 +35,7 @@ body {
   }
   
   .navbar {
-    background: rgba(232, 243, 234);
+    background: white;
     padding-left: 16px;
     padding-right: 30px;
     padding-bottom: 10px;
@@ -46,6 +50,8 @@ body {
     padding-left: 10px;
     font-size: 20px;
     padding-right: 5px;
+    color: #0070ff;
+    font-weight: 600;
   }
   #lol {
     margin-top: 5px;
@@ -70,7 +76,7 @@ body {
   .navbar .nav .btn-primary,
   .navbar .nav .btn-primary:active {
     color: white;
-    background: #254e58;
+   background: #0070ff;
     padding-top: 13px;
     padding-bottom: 13px;
     font-size: 13px;
@@ -81,10 +87,10 @@ body {
   
   .navbar .nav .btn-primary:hover,
   .navbar .nav .btn-primary:focus {
-    color: #254e58;
+    color: black;
     outline: none;
     font-weight: bold;
-    background: rgba(232, 243, 234, 0.6);
+    background: white;
     border: 1px solid #254e58;
     padding-bottom: 11px;
   }
@@ -217,7 +223,7 @@ body {
   
 #c1{
     border: none;
-    background-color: rgba(232, 243, 234);
+    /* background-color: rgba(232, 243, 234); */
     padding-top: 50px;
     padding-bottom: 50px;
     width: 30%;
@@ -291,14 +297,12 @@ body {
   }
   
   .footer1 {
-    position: relative;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    position: fixed;
+    padding-top: 2px;
+    padding-bottom: 0px;
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: rgba(232, 243, 234);
-    color: #254e58;
     text-align: center;
     margin-left: 0;
     border-bottom: 1px solid black;
@@ -310,7 +314,7 @@ body {
   }
   
   .footer2 {
-    position: relative;
+    position: fixed;
     padding-top: 10px;
     padding-bottom: 10px;
     left: 0;

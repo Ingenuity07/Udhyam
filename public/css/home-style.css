@@ -1,6 +1,11 @@
 body {
   font-family: "Varela Round", sans-serif;
-  background: #254e58;
+  background: #ffffff;
+  background-image: url('/img/bg1.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  
 }
 
 ::-webkit-scrollbar {
@@ -31,7 +36,7 @@ body {
 }
 
 .navbar {
-  background: rgba(232, 243, 234);
+  background:white;
   padding-left: 16px;
   padding-right: 30px;
   padding-bottom: 10px;
@@ -48,6 +53,8 @@ body {
   padding-left: 10px;
   font-size: 20px;
   padding-right: 5px;
+  color: #0070ff;
+  font-weight: 600;
 }
 #lol {
   margin-top: 5px;
@@ -72,7 +79,7 @@ body {
 .navbar .nav .btn-primary,
 .navbar .nav .btn-primary:active {
   color: white;
-  background: #254e58;
+  background: #0070ff;
   padding-top: 13px;
   padding-bottom: 13px;
   font-size: 13px;
@@ -83,10 +90,10 @@ body {
 
 .navbar .nav .btn-primary:hover,
 .navbar .nav .btn-primary:focus {
-  color: #254e58;
+  color: black;
   outline: none;
   font-weight: bold;
-  background: rgba(232, 243, 234, 0.6);
+  background: white;
   border: 1px solid #254e58;
   padding-bottom: 11px;
 }
@@ -257,14 +264,12 @@ body {
 }
 
 .footer1 {
-  position: relative;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  position: fixed;
+  padding-top: 2px;
+  padding-bottom: 0px;
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: rgba(232, 243, 234);
-  color: #254e58;
   text-align: center;
   margin-left: 0;
   border-bottom: 1px solid black;
@@ -462,8 +467,8 @@ a {
 
 .head2 .btn-primary,
 .head2 .btn-primary:active {
-  color: #254e58;
-  background: rgba(232, 243, 234);
+  color: white;
+  background: #0070ff;
   padding-top: 13px;
   padding-bottom: 13px;
   font-size: 25px;
@@ -475,11 +480,11 @@ a {
 
 .head2 .btn-primary:hover,
 .head2 .btn-primary:focus {
-  color: rgba(232, 243, 234);
+  color: black;
   outline: none;
   font-weight: bold;
-  background: #254e58;
-  border: 1px solid rgba(232, 243, 234);
+  background: white;
+  border: 1px solid #254e58;
   padding-bottom: 11px;
 }
 
@@ -520,4 +525,21 @@ a {
 
 #carouselExampleControls .carousel-item {
   height: 600px;
+}
+
+.service {
+  display: flex;
+  justify-content: center;
+}
+.middle {
+  background-color: #0070ff;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+}
+.middle .recruiter{
+  background-color: #254e58;
+}
+.middle .worker{
+  background-color: red;
 }

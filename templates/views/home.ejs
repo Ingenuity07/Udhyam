@@ -32,7 +32,7 @@
   </head>
   <body>
     <div>
-      <nav class="navbar navbar-default navbar-expand-lg navbar-light">
+      <nav class="navbar navbar-default navbar-expand-lg navbar-light sticky">
         <a class="navbar-brand" href="/">
           <img src="/img/logo.png" width="25" height="25" class="logo"
         /></a>
@@ -58,9 +58,6 @@
                 id="node"
                 >About</a
               >
-            </li>
-            <li class="nav-item">
-              <a href="#contact/to/us" class="nav-link" id="node">Contact</a>
             </li>
             <% if(user) {%>
             <li class="nav-item">
@@ -145,11 +142,22 @@ As long as the app and the information and services are provided free of charge,
     </div>
     <div class="container">
       <div class="row">
-        <div class="heading" style="color: aliceblue; font-family: 'Poppins', sans-serif;"></div>
+        <div class="heading" style="color: black; font-weight: 700; font-family: 'Poppins', sans-serif;"></div>
       </div>
     </div>
+    <div class="service">
+      <h1>Our Services</h1>
+    </div>
+    <div class = "middle">
+        <div class="recruiter">
+          <h2>for recruiter</h2>
 
-    <div class="container-fluid px-0">
+        </div>
+        <div class="worker">
+          <h2>for workers</h2>
+        </div>
+    </div>
+    <!-- <div class="container-fluid px-0">
       <div
         id="carouselExampleControls"
         class="carousel slide"
@@ -166,7 +174,7 @@ As long as the app and the information and services are provided free of charge,
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active" id="slide1">
-            <!--<div class="d-flex align-items-center min-vh-100">
+            <div class="d-flex align-items-center min-vh-100">
                <div
                 class="container"
                 style="text-align: center; margin-right: 40px; margin-left: 10%"
@@ -185,7 +193,7 @@ As long as the app and the information and services are provided free of charge,
                   form,dff fjj
                 </p>
               </div> 
-            </div>-->
+            </div>
           </div>
           <div class="carousel-item" id="slide2"></div>
           <div class="carousel-item" id="slide3"></div>
@@ -209,10 +217,10 @@ As long as the app and the information and services are provided free of charge,
           <span class="sr-only">Next</span>
         </a>
       </div>
-    </div>
+    </div> -->
     <% if(!user) {%>
     <div class="container py-4 text-center">
-      <h1 style="color: aliceblue; font-family: 'Poppins', sans-serif; font-weight: normal;" class="cont">So, take a step closer to us now.</h1>
+      <h1 style="color: rgb(0, 0, 0); font-family: 'Poppins', sans-serif; font-weight: normal;" class="cont">So, take a step closer to us now.</h1>
       <div class="head2">
         
         <a
@@ -235,21 +243,21 @@ As long as the app and the information and services are provided free of charge,
     </button>
     <footer class="footer1" id="contact/to/us">
       <div class="container">
-        <div class="row">
+        <div class="" style="display: flex;">
           <div class="col-xl-4">
-            <a href="https://github.com/Cre-tive-Crew" style="color: #254e58" target="_blank"
+            <a href="https://github.com/Cre-tive-Crew" style="color: white" target="_blank"
               ><i class="fa fa-github" aria-hidden="true"></i> Visit us
             </a>
           </div>
           <div class="col-xl-4">
             <a
               href="https://mail.google.com/mail/?view=cm&fs=1&to=get.udhyam@gmail.com&su=SUBJECT&body=BODY"
-              style="color: #254e58"
+              style="color: white"
               target="_blank"
               ><i
                 class="fa fa-envelope"
                 aria-hidden="false"
-                style="color: #254e58"
+                style="color: white"
               ></i>
               Mail us for any query</a
             >
@@ -258,22 +266,20 @@ As long as the app and the information and services are provided free of charge,
             <a
               href="#terms&conditions"
               onclick="document.getElementById('modal-wrapper1').style.display='block'"
-              style="color: #254e58"
+              style="color: white"
               ><i
                 class="fa fa-laptop"
                 aria-hidden="false"
-                style="color: #254e58"
+                style="color: white"
               ></i>
               Terms &amp; Conditions</a
             >
           </div>
         </div>
       </div>
-    </footer>
-    <footer class="footer2">
       <div class="container">
-        <div class="row">
-          <div class="col-xl-12">Copyright © 2020 Creative_Crew</div>
+        <div class="">
+          <div class="col-xl-12" style="color: white;" >Copyright © 2023 Creative_Crew</div>
         </div>
       </div>
     </footer>
