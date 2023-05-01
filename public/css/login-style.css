@@ -1,7 +1,7 @@
 body {
     font-family: "Varela Round", sans-serif;
     background: #ffffff;
-    background-image: url('/img/bg1.jpg');
+    background-image: url('/img/bg22.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -297,14 +297,17 @@ body {
   }
   
   .footer1 {
+    z-index: 2;
     position: fixed;
     padding-top: 2px;
-    padding-bottom: 0px;
+    padding-bottom: 2px;
     left: 0;
     bottom: 0;
     width: 100%;
     text-align: center;
     margin-left: 0;
+    background-color: #0070ff;
+    color: white;
     border-bottom: 1px solid black;
   }
   

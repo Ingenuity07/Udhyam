@@ -1,6 +1,10 @@
  body {
     font-family: "Varela Round", sans-serif;
-    background: #254e58;
+    background: #ffffff;
+  background-image: url('/img/bg22.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
   }
   
   ::-webkit-scrollbar {
@@ -31,7 +35,7 @@
   }
   
   .navbar {
-    background: rgba(232, 243, 234);
+    background: white;
     padding-left: 16px;
     padding-right: 30px;
     padding-bottom: 10px;
@@ -46,6 +50,8 @@
     padding-left: 10px;
     font-size: 20px;
     padding-right: 5px;
+    color: #0070ff;
+    font-weight: 600;
   }
   #lol {
     margin-top: 5px;
@@ -70,7 +76,7 @@
   .navbar .nav .btn-primary,
   .navbar .nav .btn-primary:active {
     color: white;
-    background: #254e58;
+    background: #0070ff;
     padding-top: 13px;
     padding-bottom: 13px;
     font-size: 13px;
@@ -246,14 +252,15 @@
   }
   
   .footer1 {
-    position: relative;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    z-index: 2;
+    position: fixed;
+    padding-top: 2px;
+    padding-bottom: 2px;
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: rgba(232, 243, 234);
-    color: #254e58;
+    background-color: #0070ff;
+    color: white;
     text-align: center;
     margin-left: 0;
     border-bottom: 1px solid black;
@@ -425,11 +432,10 @@
     display: grid;
     grid-template-columns: 20% 90% 0px 0px;
     grid-gap: 50px;
-    background-color: #254e58;
+    margin-bottom: 70px;
     padding: 10px;
   }
   .box1{
-    height: 500px;
     margin-top: 30px;
     margin-left: 20px;
     padding-left: 0px;
@@ -777,8 +783,10 @@ button:hover .button-text {
   
  .my-heading {
   font-family: 'Poppins', sans-serif;
-  font-weight: 100; 
-  color: rgba(232, 243, 234);
-  margin: 0px 42%; 
+  font-weight: 600; 
+  color: #254e58;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px; 
   width: 100%;
  }

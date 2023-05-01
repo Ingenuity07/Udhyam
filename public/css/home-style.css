@@ -1,7 +1,7 @@
 body {
   font-family: "Varela Round", sans-serif;
   background: #ffffff;
-  background-image: url('/img/bg1.jpg');
+  background-image: url('/img/bg22.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -264,15 +264,17 @@ body {
 }
 
 .footer1 {
+  z-index: 2;
   position: fixed;
   padding-top: 2px;
-  padding-bottom: 0px;
+  padding-bottom: 2px;
   left: 0;
   bottom: 0;
   width: 100%;
   text-align: center;
   margin-left: 0;
   border-bottom: 1px solid black;
+  background-color: #0070ff;
 }
 
 .footer1 a:hover {
@@ -527,19 +529,3 @@ a {
   height: 600px;
 }
 
-.service {
-  display: flex;
-  justify-content: center;
-}
-.middle {
-  background-color: #0070ff;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-}
-.middle .recruiter{
-  background-color: #254e58;
-}
-.middle .worker{
-  background-color: red;
-}

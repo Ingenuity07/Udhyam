@@ -29,9 +29,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/css/home-style.css" />
+    <link rel="stylesheet" href="/css/home_card.css" />
   </head>
   <body>
-    <div>
+    <div style="position: fixed;
+                padding-top: 0px;
+                left: 0;
+                top: 0;
+                width: 100%;
+                z-index: 2;"
+    >
       <nav class="navbar navbar-default navbar-expand-lg navbar-light sticky">
         <a class="navbar-brand" href="/">
           <img src="/img/logo.png" width="25" height="25" class="logo"
@@ -140,9 +147,9 @@ As long as the app and the information and services are provided free of charge,
         >
       </form>
     </div>
-    <div class="container">
+    <div class="container" style="margin-top: 70px;">
       <div class="row">
-        <div class="heading" style="color: black; font-weight: 700; font-family: 'Poppins', sans-serif;"></div>
+        <div class="heading" style="color: #254e58; font-weight: 700; font-family: 'Poppins', sans-serif;"></div>
       </div>
     </div>
     <div class="service">
@@ -150,77 +157,65 @@ As long as the app and the information and services are provided free of charge,
     </div>
     <div class = "middle">
         <div class="recruiter">
-          <h2>for recruiter</h2>
-
-        </div>
-        <div class="worker">
-          <h2>for workers</h2>
-        </div>
-    </div>
-    <!-- <div class="container-fluid px-0">
-      <div
-        id="carouselExampleControls"
-        class="carousel slide"
-        data-ride="carousel"
-      >
-        <ol class="carousel-indicators">
-          <li
-            class="active"
-            data-slide-to="0"
-            data-target="#carouselExampleControls"
-          ></li>
-          <li data-slide-to="1" data-target="#carouselExampleControls"></li>
-          <li data-slide-to="2" data-target="#carouselExampleControls"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active" id="slide1">
-            <div class="d-flex align-items-center min-vh-100">
-               <div
-                class="container"
-                style="text-align: center; margin-right: 40px; margin-left: 10%"
-              >
-                <div class="align-items-center justify-content-center">
-                  <a href=""
-                    ><h1 class="display-1" style="color: red">ONE</h1></a
-                  >
-                </div>
-                <p
-                  class=""
-                  style="padding-left: 0px; padding-right: 8%; color: #1979a9"
-                >
-                  There are many variations of passages of Lorem Ipsum
-                  available, but the majority have suffered alteration in some
-                  form,dff fjj
-                </p>
-              </div> 
+          <!-- <h2 class="card_heading">for recruiter</h2> -->
+          <div class="col-12 col-lg-3" style="max-width: 100%;">
+            <div class="our-team">
+              <div class="picture">
+                <img class="img-fluid" src="/img/recruiter.jpg" />
+              </div>
+              <div class="team-content" style="font-family: cursive;">
+                <h4 class="name">Recruiter</h4>
+                <h5 class="title">hover here!</h5>
+              </div>
+              <ul class="social">
+                <li>
+                  <p class="card_point" >You can hier skilled worker.</p>
+                </li>
+                <li>
+                  <p class="card_point">you can filter workers based on skill.</p>
+                </li>
+                <li>
+                  <p class="card_point">you can create a job posting.</p>
+                </li>
+              </ul>
             </div>
           </div>
-          <div class="carousel-item" id="slide2"></div>
-          <div class="carousel-item" id="slide3"></div>
         </div>
-        <a
-          class="carousel-control-prev"
-          href="#carouselExampleControls"
-          role="button"
-          data-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a
-          class="carousel-control-next"
-          href="#carouselExampleControls"
-          role="button"
-          data-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </div> -->
+        <div class="worker">
+          <!-- <h2 class="card_heading">for workers</h2> -->
+          <div class="col-12 col-lg-3" style="max-width: 100%;" >
+            <div class="our-team">
+              <div class="picture">
+                <img class="img-fluid" src="/img/worker.jpg" />
+              </div>
+              <div class="team-content" style="font-family: cursive;">
+                <h4 class="name">Worker</h4>
+                <h5 class="title">Hover here!</h5>
+              </div>
+              <ul class="social">
+                <li>
+                  <p class="card_point">You can increase your reach.</p>
+                  <!-- <a
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=devshivam@gmail.com&su=SUBJECT&body=BODY"
+                    class="fa fa-google"
+                    aria-hidden="true"
+                    target="_blank"
+                  ></a> -->
+                </li>
+                <li>
+                  <p class="card_point">Choose the best job for you.</p>
+                </li>
+                <li>
+                  <p class="card_point">you can apply to jobs.</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </div>
     <% if(!user) {%>
-    <div class="container py-4 text-center">
-      <h1 style="color: rgb(0, 0, 0); font-family: 'Poppins', sans-serif; font-weight: normal;" class="cont">So, take a step closer to us now.</h1>
+    <div class="container py-4 text-center" style="margin-bottom: 60px;">
+      <h1 style="color: #254e58; font-family: 'Poppins', sans-serif; font-weight: normal;" class="cont">So, take a step closer to us now.</h1>
       <div class="head2">
         
         <a
@@ -241,7 +236,7 @@ As long as the app and the information and services are provided free of charge,
     <button onclick="topFunction()" id="myBtn" title="Go to top">
       <i class="fa fa-arrow-up" aria-hidden="true"></i>
     </button>
-    <footer class="footer1" id="contact/to/us">
+    <footer class="footer1" id="contact/to/us" >
       <div class="container">
         <div class="" style="display: flex;">
           <div class="col-xl-4">
@@ -259,7 +254,7 @@ As long as the app and the information and services are provided free of charge,
                 aria-hidden="false"
                 style="color: white"
               ></i>
-              Mail us for any query</a
+              Mail</a
             >
           </div>
           <div class="col-xl-4">
