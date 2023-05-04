@@ -76,10 +76,15 @@ router.get('/users/dashboard', authCheck , profileCheck , async (req,res)=>{
         })
         res.render('dashboard',{ jobs:fitjobs ,user:req.user})
      }
-     else{
+     else if(req.user.type == "recruiter"){
         const users = await User.find({  type:'worker'})
         res.render('dashboard',{ users:users ,user:req.user})
-     }
+     }else{
+        const jobs = await Job.find({})
+        const workers = await User.find({  type:'worker'})
+        const recruiters = await User.find({  type:'recruiter'})
+        res.render('dashboard',{ jobs:jobs,workers:workers, recruiters:recruiters ,user:req.user})
+    }
 });
 router.post('/users/dashboard/filter',authCheck , profileCheck , async (req,res)=>{
     const filters = []
@@ -91,11 +96,32 @@ router.post('/users/dashboard/filter',authCheck , profileCheck , async (req,res)
         const fitjobs= jobs
         const filteredjobs = fitjobs.filter((job)=> (filters.includes(job.jobType)))
         res.render('dashboard',{ jobs:filteredjobs ,user:req.user})
-     }
-     else{
+    }
+    else if(req.user.type == "recruiter"){
         const users = await User.find({  type:'worker'})
         const filterusers=users.filter((user)=>(filters.some((filter)=>  user.jobTypes.includes(filter))))
         res.render('dashboard',{ users:filterusers ,user:req.user})
+    }
+    else{
+        console.log(filters)
+        const s = filters[0]
+        const jobs = await Job.find({})
+        const workers = await User.find({  type:'worker'})
+        const recruiters = await User.find({  type:'recruiter'})
+        if(s[s.length-1]=='J'){
+            const newfilters=[];
+            newfilters.push(s.slice(0,s.length-1))
+            console.log(newfilters,1)
+            const filterjobs=jobs.filter((job)=>(newfilters.some((filter)=>  job.jobType.includes(filter))))
+            res.render('dashboard',{ jobs:filterjobs,workers:workers,recruiters:recruiters ,user:req.user})
+        }else{
+            const newfilters=[];
+            newfilters.push(s.slice(0,s.length-1))
+            console.log(newfilters,2)
+            const filterworkers=workers.filter((user)=>(filters.some((filter)=>  user.jobTypes.includes(filter))))
+            res.render('dashboard',{ jobs:jobs,workers:filterworkers,recruiters:recruiters ,user:req.user})
+        }
+
      }
 
 })

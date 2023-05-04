@@ -138,24 +138,24 @@ As long as the app and the information and services are provided free of charge,
             <h2 style="color: white" >Register</h2>
             <form action="/auth/otp" method ="post" >
   
-              <input type="text" placeholder="Name" name="username"/>
+              <input type="text" placeholder="Name" name="username" class="input_login"/>
               
-              <input type="text" placeholder="Number" name="contact1"/>
+              <input type="text" placeholder="Number" name="contact1" class="input_login"/>
               
-              <input type="password" placeholder="Password" name="password"/>
+              <input type="password" placeholder="Password" name="password" class="input_login"/>
               
-              <button>Submit</button>
+              <button class="button_login">Submit</button>
               </form>
               
               <h2 style="color: white" >Login</h2>
               <form action="/auth/local-login" method="post">
   
       
-                <input type="text" placeholder="Email" name="contact1"/>
+                <input type="text" placeholder="Email" name="contact1" class="input_login"/>
                 
-                <input type="password" placeholder="Password" name="password"/>
+                <input type="password" placeholder="Password" name="password" class="input_login"/>
                 
-                <button>Submit</button>
+                <button class="button_login">Submit</button>
                 </form>
             
               </div>
