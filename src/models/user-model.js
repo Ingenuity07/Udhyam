@@ -16,8 +16,12 @@ const userSchema = new Schema({
         type:String,
         required:true
     }],
-    googleID : { type:String , required:true},
-    thumbnail : String
+    googleID : { type:String },
+    thumbnail : String,
+    verified: {type:Boolean, default:false},
+    strategy: String,
+    profileComplete:{type:Boolean, default:false},
+    password:String,
 });
 
 userSchema.methods.toJSON = function () {
