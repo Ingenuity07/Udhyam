@@ -1,5 +1,6 @@
 const passport =require('passport')
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const localStrategy = require('passport-local').Strategy
 const User = require('../models/user-model')
 
 passport.serializeUser((user,done)=>{
@@ -13,6 +14,29 @@ passport.deserializeUser((id,done)=>{
 })
 
 
+passport.use(
+    new localStrategy({
+        usernameField: 'contact1',
+      },async (contact1,password,done)=>{
+        
+        try{
+        
+            console.log(contact1,password)
+        
+            const user = await User.findOne({contact1})
+            console.log(user, "Local starategy")
+            if(!user) return done(null,false);
+        
+            if(user.password !== password) return done (null,false)
+            
+            return done (null,user)
+        }
+        catch(err) {
+            return done(err,false)
+        }
+    }))
+    
+    
 passport.use(
     new GoogleStrategy({
         callbackURL :"/auth/google/redirect" ,
@@ -28,7 +52,7 @@ passport.use(
             else {
                 console.log(profile);
                 new User({
-                    username:profile.displayName ,
+                    username:profile.displayName,
                     googleID: profile.id,
                     thumbnail: profile._json.picture,
                     email : profile._json.email

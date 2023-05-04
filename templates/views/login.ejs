@@ -90,8 +90,10 @@ As long as the app and the information and services are provided free of charge,
 
 <!-- <br><br><br><br><br><br> -->
 <div class="container" id="c1">
-    <ul class="form-wrapper" >					
+    <ul class="form-wrapper" >	
+    
         <li type="none" >
+        <div style="background-color: black; padding:20px; border-radius:5px" >
             <form action="/post" method="post" >
               <div style="display:flex;justify-content: center;align-items: center;margin-bottom: 5px;" >
                 <img 
@@ -129,8 +131,36 @@ As long as the app and the information and services are provided free of charge,
                 </a>
               </div>
               
+              
               <p class="hint-text" style="text-align: center; font-weight: bold; color: white;">Do not have Google account? <a style="text-decoration: none;" target="_blank "href="https://accounts.google.com/signup/v2/webcreateaccount?hl=en&flowName=GlifWebSignIn&flowEntry=SignUp">Create one here.</a></p>
             </form>
+            
+            <h2 style="color: white" >Register</h2>
+            <form action="/auth/otp" method ="post" >
+  
+              <input type="text" placeholder="Name" name="username"/>
+              
+              <input type="text" placeholder="Number" name="contact1"/>
+              
+              <input type="password" placeholder="Password" name="password"/>
+              
+              <button>Submit</button>
+              </form>
+              
+              <h2 style="color: white" >Login</h2>
+              <form action="/auth/local-login" method="post">
+  
+      
+                <input type="text" placeholder="Email" name="contact1"/>
+                
+                <input type="password" placeholder="Password" name="password"/>
+                
+                <button>Submit</button>
+                </form>
+            
+              </div>
+           
+            
         </li>
     </ul>
 </div>

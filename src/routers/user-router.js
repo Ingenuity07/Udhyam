@@ -4,6 +4,7 @@ const Job = require('../models/job-model')
 const router = express.Router()
 const authCheck= require('../middleware/authCheck')
 const profileCheck =require('../middleware/profileCheck')
+const otpCheck = require('../middleware/otpCheck')
 
 router.post('/users',async (req,res)=>{
     const user = new User(req.body)
@@ -24,6 +25,7 @@ router.post('/user-worker' ,authCheck, async (req,res)=>{
      if(req.body.contact2)
      user.contact2=req.body.contact2
      user.type="worker"
+     user.profileComplete=true
      const jobs = ['Painter','Gardener','Maid','Watchman']
      jobs.forEach((job)=>{
          if((job in req.body) && !user.jobTypes.includes(job)) user.jobTypes.push(job)
@@ -43,6 +45,7 @@ router.post('/user-recruiter' ,authCheck, async (req,res)=>{
     user.contact2=req.body.contact2
     user.type="recruiter"
     req.user=user
+    user.profileComplete=true
     await user.save()
     res.redirect('/users/profile')
 })
@@ -50,11 +53,11 @@ router.post('/user-recruiter' ,authCheck, async (req,res)=>{
 router.get('/about-us',(req,res)=>{
     res.render('about-us',{user:req.user})
 })
-router.get('/users/profile/update' , authCheck ,(req,res)=>{
+router.get('/users/profile/update' , authCheck,(req,res)=>{
     res.render('profile-form',{user:req.user})
 })
 
-router.get('/users/profile' , authCheck ,profileCheck ,(req,res)=>{
+router.get('/users/profile' , authCheck ,profileCheck, otpCheck ,(req,res)=>{
    res.render('profile',{user:req.user})
 })
 
@@ -99,6 +102,13 @@ router.post('/users/dashboard/filter',authCheck , profileCheck , async (req,res)
 
 router.get('/users/newjobs',authCheck ,(req,res)=>{
     res.render('job-form', {user:req.user})
+})
+
+
+router.get('/users/recruiter',authCheck ,async (req,res)=>{
+    console.log("users route")
+    const users = await User.find({type:'recruiter'})
+    res.send(users)
 })
 
 module.exports=router
