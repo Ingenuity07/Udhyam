@@ -7,6 +7,10 @@ router.get('/login',(req,res)=>{
     res.render('login',{user:req.user});
 })
 
+router.get('/admin-login',(req,res)=>{
+    res.render('admin-login',{user:req.user});
+})
+
 router.get('/signup',(req,res)=>{
     res.render('signup',{user:req.user});
 })

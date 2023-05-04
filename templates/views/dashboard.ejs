@@ -105,11 +105,18 @@
 <form id="filter" action="/users/dashboard/filter" method="POST"></form>
 <div class="grid-container">
   <div class="box1">
-    <div class="imge"> <img src=<%=user.thumbnail%> class="image" > </div>
+    <div class="imge">
+      <img 
+        <%if(!user.thumbnail){%>
+          src="/img/user.png"
+        <%}else{%>
+          src=<%= user.thumbnail %>
+        <%}%> 
+      class="image"> 
+    </div>
     <div class="user-name" style="text-transform: capitalize;"><%= getFirstWord(user.username) %></div>
     
     <% if(user.type=='admin'){%>
-      <div style="font-size: 25px; text-align: center; margin: 2px 8px; color: #254e58; font-weight: 800;"> Filters</div>
       <section >
         <div style="font-size: 25px; text-align: center; margin: 2px 8px; color: #254e58; font-weight: 800;"> Filter Job</div>
         
@@ -252,7 +259,12 @@
       </div>
       
       <div style="display: flex;flex-direction: column;">
-        <div class="ra">
+        <%if(user.type=='recruiter'){
+          %><h1 style="margin-top: 30px;">Available Workers</h1><%
+        }else{
+          %><h1 style="margin-top: 30px;">Available Jobs</h1><%
+        }%>
+        <div class="ra" style="margin-top: 0px;">
           <div class="row r">
         <% if(user.type=="worker") {%>
         <% jobs.forEach( (job)=>{%>
@@ -372,7 +384,8 @@
       </div>
     </div>
     <%if(user.type=="admin"){%>
-    <div class="ra">
+      <h1 style="margin-top: 30px;">Available Workers</h1>
+    <div class="ra" style="margin-top: 0px;">
       <div class="row r">
         
         <% workers.forEach( (worker)=>{%>
@@ -431,7 +444,8 @@
         <%}) %>    
       </div>
     </div>
-    <div class="ra">
+    <h1 style="margin-top: 30px;">Available Recruiters</h1>
+    <div class="ra" style="margin-top: 0px;">
       <div class="row r">
       <% recruiters.forEach( (recruiter)=>{%>
         <div class="boxx">
@@ -529,7 +543,7 @@ As long as the app and the information and services are provided free of charge,
       <div class="container">
         <div class="" style="display: flex;">
           <div class="col-xl-4">
-            <a href="https://github.com/Cre-tive-Crew" style="color: white" target="_blank"
+            <a href="https://github.com/Initiaters" style="color: white" target="_blank"
               ><i class="fa fa-github" aria-hidden="true"></i> Visit us
             </a>
           </div>
@@ -563,7 +577,7 @@ As long as the app and the information and services are provided free of charge,
       </div>
       <div class="container">
         <div class="">
-          <div class="col-xl-12" style="color: white;" >Copyright © 2023 Creative_Crew</div>
+          <div class="col-xl-12" style="color: white;" >Copyright © 2023 Udhyam</div>
         </div>
       </div>
     </footer>
