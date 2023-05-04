@@ -421,3 +421,11 @@ body {
            padding-top: 8px;
         }
     }
+
+    .input_login{
+      color: white;
+    }
+    .button_login{
+      color: white;
+      background-color: #0070ff;
+    }

@@ -33,8 +33,11 @@ router.post('/jobs/delete', async (req,res)=>{
     catch(err){
        console.log(err);
     }
-    
-    res.redirect('/users/jobs')
+    if(req.user.type == "admin"){
+        res.redirect('/users/dashboard')
+    }else{
+        res.redirect('/users/jobs')
+    }
 })
 
 router.get('/jobs',async (req,res)=>{
