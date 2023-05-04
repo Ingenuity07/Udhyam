@@ -5,6 +5,7 @@ const router = express.Router()
 const authCheck= require('../middleware/authCheck')
 const profileCheck =require('../middleware/profileCheck')
 const otpCheck = require('../middleware/otpCheck')
+const mongoose = require('mongoose')
 
 router.post('/users',async (req,res)=>{
     const user = new User(req.body)
@@ -135,6 +136,17 @@ router.get('/users/recruiter',authCheck ,async (req,res)=>{
     console.log("users route")
     const users = await User.find({type:'recruiter'})
     res.send(users)
+})
+
+
+router.post('/users/delete',authCheck ,async (req,res)=>{
+    try{
+        await User.findOneAndDelete( { _id: mongoose.Types.ObjectId(req.body._id) } )
+      }
+      catch(err){
+         console.log(err);
+      }
+      res.redirect('/users/dashboard')
 })
 
 module.exports=router
