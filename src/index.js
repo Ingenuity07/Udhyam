@@ -40,7 +40,7 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/*',(req,res)=>{
-    res.render('error')
+    res.render('error',{message:''})
 })
 app.listen(port,() =>{
     console.log('Server is up on',port)

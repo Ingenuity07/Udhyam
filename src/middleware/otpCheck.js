@@ -7,7 +7,7 @@ const otpCheck = (req, res, next) => {
             startVerification(req.user.contact1).then((success)=>console.log('success')).then(()=>res.render('otp',{context: req.user}))
         }
         catch(err){
-            res.render('error')}
+            res.render('error',{message: "Invalid OTP - Please retry"})}
     } else {
         next();
     }
