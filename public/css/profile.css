@@ -1,6 +1,11 @@
 body {
   font-family: "Varela Round", sans-serif;
-  background: #254e58;
+  /* background: #254e58; */
+  background: #ffffff;
+  background-image: url('/img/bg22.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 ::-webkit-scrollbar {
@@ -31,7 +36,7 @@ body {
 }
 
 .navbar {
-  background: rgba(232, 243, 234);
+  background: white;
   padding-left: 16px;
   padding-right: 30px;
   padding-bottom: 10px;
@@ -46,6 +51,8 @@ body {
   padding-left: 10px;
   font-size: 20px;
   padding-right: 5px;
+  color: #0070ff;
+  font-weight: 600;
 }
 #lol {
   margin-top: 5px;
@@ -70,7 +77,7 @@ body {
 .navbar .nav .btn-primary,
 .navbar .nav .btn-primary:active {
   color: white;
-  background: #254e58;
+  background: #0070ff;
   padding-top: 13px;
   padding-bottom: 13px;
   font-size: 13px;
@@ -246,14 +253,15 @@ body {
 }
 
 .footer1 {
-  position: relative;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  z-index: 2;
+  position: fixed;
+  padding-top: 2px;
+  padding-bottom: 2px;
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: rgba(232, 243, 234);
-  color: #254e58;
+  background-color: #0070ff;
+  color: white;
   text-align: center;
   margin-left: 0;
   border-bottom: 1px solid black;
@@ -477,10 +485,10 @@ body {
 .profile-content {
   padding: 20px;
   margin-top: 0;
-  padding-top: 0;
-  background: #254e58;
+  border-radius: 10px;
+  background-color: rgba(232, 243, 234);
   min-height: 460px;
-  color: rgba(232, 243, 234, 0.6);
+  color: #5a7391;;
   font-size: 16px;
   margin-bottom: 55px;
 }
@@ -490,8 +498,9 @@ body {
 
 .btn-3,
 .btn-3:active {
-  color: #254e58;
-  background: rgba(232, 243, 234);
+  color: #fff;
+  background-color: #17a2b8;
+  border-color: #17a2b8;
   padding-top: 10px;
   padding-bottom: 10px;
   font-size: 13px;
