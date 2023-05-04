@@ -1,20 +1,19 @@
 @import "home-style.css";
 
-.footer2 {
-  /* position: fixed;
-  bottom: 0px;
-  left: 0px;
-  right: 0px; */
-  margin-bottom: 0px;
-}
+
 
 .footer1 {
-  /* position: fixed;
-  bottom: 43px;
-  left: 0px;
-  right: 0px; */
-  margin-bottom: 0px;
-  margin-top: 60px;
+  z-index: 2;
+  position: fixed;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  margin-left: 0;
+  border-bottom: 1px solid black;
+  background-color: #0070ff;
 }
 
 #user .avatar {
