@@ -41,7 +41,7 @@ router.post('/otp',async (req,res)=>{
         .then((success)=>console.log('success'))
         .then(()=>res.render('otp',{context: req.body}))
         .catch((er)=>{ 
-        console.log(er)
+        console.log("Errroorororo",er)
         res.render('error',{message: "Enter valid Phone Number"})})
 })
 
