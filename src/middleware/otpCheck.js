@@ -2,12 +2,13 @@ const {startVerification} = require('../utils/verify')
 const otpCheck = (req, res, next) => {
 
     if(!req.user.verified ){
-        try{
+       
             console.log('OTP',req.user)
-            startVerification(req.user.contact1).then((success)=>console.log('success')).then(()=>res.render('otp',{context: req.user}))
-        }
-        catch(err){
-            res.render('error')}
+            startVerification(req.user.contact1)
+            .then((success)=>console.log('success'))
+            .then(()=>res.render('otp',{context: req.user}))
+            .catch((er)=>{ 
+                res.render('error',{message: "Enter valid Phone Number"})})
     } else {
         next();
     }
