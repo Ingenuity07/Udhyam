@@ -40,7 +40,7 @@ router.post('/user-worker' ,authCheck, numberCheck, async (req,res)=>{
 })
 
 router.post('/user-recruiter' ,authCheck, numberCheck, async (req,res)=>{
-    
+            console.log(req.user)
         const user = await User.findOne({googleID : req.user.googleID})
         user.email=req.body.email
         user.address=req.body.address
@@ -99,32 +99,45 @@ router.post('/users/dashboard/filter',authCheck , profileCheck , async (req,res)
     if(req.user.type == "worker"){
         const jobs = await Job.find({})
         const fitjobs= jobs
-        const filteredjobs = fitjobs.filter((job)=> (filters.includes(job.jobType)))
-        res.render('dashboard',{ jobs:filteredjobs ,user:req.user})
+
+        if(filters.length>0){
+            const filteredjobs = fitjobs.filter((job)=> (filters.includes(job.jobType)))
+            res.render('dashboard',{ jobs:filteredjobs ,user:req.user})
+        }else{
+            res.render('dashboard',{ jobs:jobs ,user:req.user})
+        }
     }
     else if(req.user.type == "recruiter"){
         const users = await User.find({  type:'worker'})
-        const filterusers=users.filter((user)=>(filters.some((filter)=>  user.jobTypes.includes(filter))))
-        res.render('dashboard',{ users:filterusers ,user:req.user})
+        if(filters.length>0){
+            const filterusers=users.filter((user)=>(filters.some((filter)=>  user.jobTypes.includes(filter))))
+            res.render('dashboard',{ users:filterusers ,user:req.user})
+        }else{
+            res.render('dashboard',{ users:users ,user:req.user})
+        }
     }
     else{
         console.log(filters)
-        const s = filters[0]
         const jobs = await Job.find({})
         const workers = await User.find({  type:'worker'})
         const recruiters = await User.find({  type:'recruiter'})
-        if(s[s.length-1]=='J'){
-            const newfilters=[];
-            newfilters.push(s.slice(0,s.length-1))
-            console.log(newfilters,1)
-            const filterjobs=jobs.filter((job)=>(newfilters.some((filter)=>  job.jobType.includes(filter))))
-            res.render('dashboard',{ jobs:filterjobs,workers:workers,recruiters:recruiters ,user:req.user})
+        if(filters.length>0){
+            const s = filters[0]
+            if(s[s.length-1]=='J'){
+                const newfilters=[];
+                newfilters.push(s.slice(0,s.length-1))
+                console.log(newfilters,1)
+                const filterjobs=jobs.filter((job)=>(newfilters.some((filter)=>  job.jobType.includes(filter))))
+                res.render('dashboard',{ jobs:filterjobs,workers:workers,recruiters:recruiters ,user:req.user})
+            }else{
+                const newfilters=[];
+                newfilters.push(s.slice(0,s.length-1))
+                console.log(newfilters,2)
+                const filterworkers=workers.filter((user)=>(filters.some((filter)=>  user.jobTypes.includes(filter))))
+                res.render('dashboard',{ jobs:jobs,workers:filterworkers,recruiters:recruiters ,user:req.user})
+            }
         }else{
-            const newfilters=[];
-            newfilters.push(s.slice(0,s.length-1))
-            console.log(newfilters,2)
-            const filterworkers=workers.filter((user)=>(filters.some((filter)=>  user.jobTypes.includes(filter))))
-            res.render('dashboard',{ jobs:jobs,workers:filterworkers,recruiters:recruiters ,user:req.user})
+            res.render('dashboard',{ jobs:jobs,workers:workers,recruiters:recruiters ,user:req.user})
         }
 
      }
