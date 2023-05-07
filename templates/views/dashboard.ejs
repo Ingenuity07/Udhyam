@@ -116,6 +116,7 @@
     </div>
     <div class="user-name" style="text-transform: capitalize;"><%= getFirstWord(user.username) %></div>
     
+    <!-- FIRST FILTER -->
     <% if(user.type=='admin'){%>
       <section >
         <div style="font-size: 25px; text-align: center; margin: 2px 8px; color: #254e58; font-weight: 800;"> Filter Job</div>
@@ -152,7 +153,7 @@
             <span class="circle" aria-hidden="true">
               <span class="icon arrow"></span>
             </span>
-            <span class="button-text">filter</span>
+            <span class="button-text" style="margin-left: 0px;">filter</span>
           </button>
         </div>
       </section>
@@ -191,70 +192,69 @@
             <span class="circle" aria-hidden="true">
               <span class="icon arrow"></span>
             </span>
-            <span class="button-text">filter</span>
+            <span class="button-text" style="margin-left: 0px;">filter</span>
           </button>
         </div>
       </section>
-        <%}else{%>
-          
-          <% if(user.type=='recruiter'){%>
-            <div id="container">
-              
-              <button onclick="window.location.href='/users/jobs'" class="learn-more" >
-                <span class="circle" aria-hidden="true">
-                  <span class="icon arrow"></span>
-                </span>
-                <span class="button-text">My Jobs</span>
-              </button>
-              
-            </div>
-    <%}%>
-    <section >
-      <% if(user.type=='worker') {%>
-        <div style="font-size: 25px; text-align: center; margin: 2px 8px; color: #254e58; font-weight: 800;"> Filter Jobs</div>
-        <%} else {%>
-          <div style="font-size: 25px; text-align: center; margin: 2px 8px; color: #254e58; font-weight: 800;"> Filter Workers</div>
-          <%}%>
-          
-          
-          <input form="filter" id='one' type='checkbox' name="Gardener" />
-          <label for='one'>
-            <span></span>
-            GARDNERS
-            <ins><i>GARDNERS</i></ins>
-          </label>
-          
-          <input id='two' form="filter" type='checkbox' name="Watchman" />
-          <label for='two'>
-            <span></span>
-            WATCHMEN
-            <ins><i>WATCHMEN</i></ins>
-          </label>
-          
-          <input id='three' form="filter" type='checkbox' name="Painter" />
-          <label for='three'>
-            <span></span>
-            PAINTERS
-            <ins><i>PAINTERS</i></ins>
-          </label>
-          
-          <input id='four' form="filter" type='checkbox' name="Maid" />
-          <label for='four'>
-            <span></span>
-            MAIDS
-            <ins><i>MAIDS</i></ins>
-          </label>
-        </section>
+    <%}else{%>
+      <% if(user.type=='recruiter'){%>
         <div id="container">
-          <button type='submit' form="filter" class="learn-more">
+          
+          <button onclick="window.location.href='/users/jobs'" class="learn-more" >
             <span class="circle" aria-hidden="true">
               <span class="icon arrow"></span>
             </span>
-            <span class="button-text">filter</span>
+            <span class="button-text">My Jobs</span>
           </button>
+          
         </div>
-        <%} 
-      %>
+      <%}%>
+
+      <!-- SECOND FILTER -->
+      <section >
+        <% if(user.type=='worker') {%>
+          <div style="font-size: 25px; text-align: center; margin: 2px 8px; color: #254e58; font-weight: 800;"> Filter Jobs</div>
+        <%} else {%>
+          <div style="font-size: 25px; text-align: center; margin: 2px 8px; color: #254e58; font-weight: 800;"> Filter Workers</div>
+        <%}%>    
+        <input form="filter" id='one' type='checkbox' name="Gardener" />
+        <label for='one'>
+          <span></span>
+          GARDNERS
+          <ins><i>GARDNERS</i></ins>
+        </label>
+        
+        <input id='two' form="filter" type='checkbox' name="Watchman" />
+        <label for='two'>
+          <span></span>
+          WATCHMEN
+          <ins><i>WATCHMEN</i></ins>
+        </label>
+        
+        <input id='three' form="filter" type='checkbox' name="Painter" />
+        <label for='three'>
+          <span></span>
+          PAINTERS
+          <ins><i>PAINTERS</i></ins>
+        </label>
+        
+        <input id='four' form="filter" type='checkbox' name="Maid" />
+        <label for='four'>
+          <span></span>
+          MAIDS
+          <ins><i>MAIDS</i></ins>
+        </label>
+      </section>
+      <div id="container">
+        <button type='submit' form="filter" class="learn-more">
+          <span class="circle" aria-hidden="true">
+            <span class="icon arrow"></span>
+          </span>
+          <span class="button-text" style="margin-left: 0px;">filter</span>
+        </button>
+      </div>
+    <%} 
+    %>
         
       </div>
       

@@ -24,6 +24,7 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -104,11 +105,17 @@
           <!-- <input type="submit" name="" value="Login" /><br /> -->
         </div>
         
-        <% if(user.message){ %>
-          <h2> <%=user.message%> </h2>
-        <% }  %>
-        
         <div class="col-md-9 register-right">
+          <%if(user.message){
+            %><p style="align-items: center;
+                        justify-content: center;
+                        display: flex;
+                        color: red;">
+                <%=user.message%><i class="material-icons">error</i>
+              </p>
+            <%
+          }
+          %>
           <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
             
             

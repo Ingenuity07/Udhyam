@@ -91,7 +91,6 @@
       <div class="row profile">
         <div class="col-md-3">
           <div class="profile-sidebar" style="border-radius: 10px; background-color: rgba(232, 243, 234);">
-            <!-- SIDEBAR USERPIC -->
             <div class="profile-userpic">
               <img
                 <%if(!user.thumbnail){%>
@@ -103,24 +102,21 @@
                 alt="https://static.change.org/profile-img/default-user-profile.svg"
               />
             </div>
-            <!-- END SIDEBAR USERPIC -->
-            <!-- SIDEBAR USER TITLE -->
             <div class="profile-usertitle">
               <div style="text-transform: capitalize" class="profile-usertitle-name"><%= user.username %></div>
               <div class="profile-usertitle-job"><%= user.type %></div>
             </div>
-            <!-- END SIDEBAR USER TITLE -->
-            <!-- SIDEBAR BUTTONS -->
-            <div class="profile-userbuttons">
-              <a  
-              href="/users/profile/update"
-              class="btn btn-info btn-sm">
-                Update Profile
-              </a>
-              <!--<button type="button" class="btn btn-danger btn-sm">Button 2</button>-->
-            </div>
-            <!-- END SIDEBAR BUTTONS -->
-            <!-- END MENU -->
+            <% if(user.type!=='admin'){
+              %>
+              <div class="profile-userbuttons">
+                <a  
+                href="/users/profile/update"
+                class="btn btn-info btn-sm">
+                  Update Profile
+                </a>
+              </div>
+              <%
+            }%>
           </div>
         </div>
         <div class="col-md-9">
@@ -208,50 +204,6 @@ As long as the app and the information and services are provided free of charge,
     <button onclick="topFunction()" id="myBtn" title="Go to top">
       <i class="fa fa-arrow-up" aria-hidden="true"></i>
     </button>
-    <!-- <footer class="footer1" id="contact/to/us">
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-4">
-            <a href="https://github.com/Initiaters" style="color: #254e58" target="_blank"
-              ><i class="fa fa-github" aria-hidden="true"></i> Visit us
-            </a>
-          </div>
-          <div class="col-xl-4">
-            <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=get.udhyam@gmail.com&su=SUBJECT&body=BODY"
-              style="color: #254e58"
-              target="_blank"
-              ><i
-                class="fa fa-envelope"
-                aria-hidden="false"
-                style="color: #254e58"
-              ></i>
-              Mail</a
-            >
-          </div>
-          <div class="col-xl-4">
-            <a
-              href="#terms&conditions"
-              onclick="document.getElementById('modal-wrapper1').style.display='block'"
-              style="color: #254e58"
-              ><i
-                class="fa fa-laptop"
-                aria-hidden="false"
-                style="color: #254e58"
-              ></i>
-              Terms &amp; Conditions</a
-            >
-          </div>
-        </div>
-      </div>
-    </footer>
-    <footer class="footer2">
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-12">Copyright © 2020 Udhyam</div>
-        </div>
-      </div>
-    </footer> -->
     <footer class="footer1" id="contact/to/us">
       <div class="container">
         <div class="" style="display: flex;">
