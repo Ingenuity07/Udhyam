@@ -28,6 +28,7 @@ router.post('/user-worker' ,authCheck, numberCheck, async (req,res)=>{
      user.contact2=req.body.contact2
      user.type="worker"
      user.profileComplete=true
+     user.verified=false
      const jobs = ['Painter','Gardener','Maid','Watchman']
      jobs.forEach((job)=>{
          if((job in req.body) && !user.jobTypes.includes(job)) user.jobTypes.push(job)
@@ -49,6 +50,7 @@ router.post('/user-recruiter' ,authCheck, numberCheck, async (req,res)=>{
         user.type="recruiter"
         req.user=user
         user.profileComplete=true
+        user.verified=false
         await user.save()
         res.redirect('/users/profile')
 })

@@ -5,11 +5,11 @@ const otpCheck = require('../middleware/otpCheck')
 const {startVerification,verifyOTP} = require('../utils/verify');
 const numberCheck = require('../middleware/numberCheck');
 router.get('/login',(req,res)=>{
-    res.render('login',{user:req.user});
+    res.render('login',{message:""});
 })
 
 router.get('/admin-login',(req,res)=>{
-    res.render('admin-login',{user:req.user});
+    res.render('admin-login',{message:""});
 })
 
 router.get('/signup',(req,res)=>{
