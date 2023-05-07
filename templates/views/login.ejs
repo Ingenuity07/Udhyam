@@ -136,6 +136,11 @@ As long as the app and the information and services are provided free of charge,
             </form>
             
             <h2 style="color: white" >Register</h2>
+            
+            <% if(message){ %>
+              <h2> <%=message%> </h2>
+            <% }  %>
+            
             <form action="/auth/otp" method ="post" >
   
               <input type="text" placeholder="Name" name="username" class="input_login"/>
