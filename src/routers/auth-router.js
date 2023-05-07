@@ -33,6 +33,9 @@ router.get('/google/redirect', passport.authenticate('google') ,(req,res)=>{
 router.post('/local-login',passport.authenticate('local',{failureRedirect:"/auth/login",successRedirect:"/users/profile"}),async (req, res)=>{ 
     
 })
+router.post('/admin-local-login',passport.authenticate('local',{failureRedirect:"/auth/admin-login",successRedirect:"/users/profile"}),async (req, res)=>{ 
+    
+})
 
 router.post('/otp',async (req,res)=>{
     

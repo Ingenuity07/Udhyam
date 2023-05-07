@@ -258,18 +258,18 @@
         
       </div>
       
-      <div style="display: flex;flex-direction: column;">
+      <div style="display: flex;flex-direction: column;width: 80%;">
         <%if(user.type=='recruiter'){
-          %><h1 style="margin-top: 30px;">Available Workers</h1><%
+          %><h1 style="margin-top: 30px;font-weight: 600;">Available Workers</h1><%
         }else{
-          %><h1 style="margin-top: 30px;">Available Jobs</h1><%
+          %><h1 style="margin-top: 30px;font-weight: 600;">Available Jobs</h1><%
         }%>
-        <div class="ra" style="margin-top: 0px;">
+        <div class="ra" style="margin-top: 0px;padding-bottom: 30px;">
           <div class="row r">
           
         <% if(user.type=="worker") {%>
           <% if(jobs.length===0){ %>
-            <h1>Oops... Currently No Jobs...</h1>
+            <h1 style="margin-top: 200px;" >Oops... Currently No Jobs...</h1>
           <% }  %>
         <% jobs.forEach( (job)=>{%>
 
@@ -303,7 +303,7 @@
         <%}else if(user.type=="recruiter") {%>
         
           <% if(users.length===0){ %>
-            <h1>Oops... Currently No Workers...</h1>
+            <h1 style="margin-top: 200px;" >Oops... Currently No Workers...</h1>
           <% }  %>
         
         <% users.forEach( (worker)=>{%>
@@ -356,7 +356,7 @@
         <%}) %>       
         <%}else{%>
           <% if(jobs.length===0){ %>
-            <h1>Oops... Currently No Jobs...</h1>
+            <h1 style="margin-top: 200px;" >Oops... Currently No Jobs...</h1>
           <% }  %>
           <% jobs.forEach( (job)=>{%>
             <div class="boxx">
@@ -382,11 +382,12 @@
                   </div>
                 </div>
               </div>
+
               <form method="POST" action="/jobs/delete" id="jobdeleteF">
                 <input type='hidden' name='_id' id="jobID" value= <%= job._id %> >
                 </input>
-                <button for='#jobdeleteF' class="btn btn-danger" title="delete" type="submit" id='jobdeleteD' > 
-                <i class='fa fa-trash'></i>
+                <button for='#jobdeleteF' class="btn btn-danger" title="delete" type="submit" id='jobdeleteD' style="margin-left: 0px;" > 
+                <i class='fa fa-trash' style="padding-right: 5px;"></i>Delete
                 </button>
               </form>
             </div> 
@@ -396,11 +397,11 @@
       </div>
     </div>
     <%if(user.type=="admin"){%>
-      <h1 style="margin-top: 30px;">Available Workers</h1>
-    <div class="ra" style="margin-top: 0px;">
+      <h1 style="margin-top: 30px;font-weight: 600;">Available Workers</h1>
+    <div class="ra" style="margin-top: 0px;padding-bottom: 30px;">
       <div class="row r">
         <% if(workers.length===0){ %>
-          <h1>Oops... Currently No Workers...</h1>
+          <h1 style="margin-top: 200px;" >Oops... Currently No Workers...</h1>
         <% }  %>
         <% workers.forEach( (worker)=>{%>
           
@@ -449,8 +450,8 @@
             <form method="POST" action="/users/delete" id="userdeleteF">
               <input type='hidden' name='_id' id="workerID" value= <%= worker._id %> >
               </input>
-              <button for='#userdeleteF' class="btn btn-danger" title="delete" type="submit" id='userdeleteD' > 
-              <i class='fa fa-trash'></i>
+              <button for='#userdeleteF' class="btn btn-danger" title="delete" type="submit" id='userdeleteD' style="margin-left: 0px;"> 
+              <i class='fa fa-trash' style="padding-right: 5px;"></i>Delete
               </button>
             </form>
           </div> 
@@ -458,11 +459,11 @@
         <%}) %>    
       </div>
     </div>
-    <h1 style="margin-top: 30px;">Available Recruiters</h1>
-    <div class="ra" style="margin-top: 0px;">
+    <h1 style="margin-top: 30px;font-weight: 600;">Available Recruiters</h1>
+    <div class="ra" style="margin-top: 0px;padding-bottom: 30px;">
       <div class="row r">
         <% if(recruiters.length===0){ %>
-          <h1>Oops... Currently No Recruiters...</h1>
+          <h1 style="margin-top: 200px;" >Oops... Currently No Recruiters...</h1>
         <% }  %>
       <% recruiters.forEach( (recruiter)=>{%>
         <div class="boxx">
@@ -504,8 +505,8 @@
           <form method="POST" action="/users/delete" id="userdeleteF">
             <input type='hidden' name='_id' id="recruiterID" value= <%= recruiter._id %> >
             </input>
-            <button for='#userdeleteF' class="btn btn-danger" title="delete" type="submit" id='userdeleteD' > 
-            <i class='fa fa-trash'></i>
+            <button for='#userdeleteF' class="btn btn-danger" title="delete" type="submit" id='userdeleteD' style="margin-left: 0px;"> 
+            <i class='fa fa-trash' style="padding-right: 5px;"></i>Delete
             </button>
           </form>
         </div> 
