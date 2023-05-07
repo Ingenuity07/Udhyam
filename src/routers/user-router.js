@@ -6,6 +6,7 @@ const authCheck= require('../middleware/authCheck')
 const profileCheck =require('../middleware/profileCheck')
 const otpCheck = require('../middleware/otpCheck')
 const mongoose = require('mongoose')
+const numberCheck = require('../middleware/numberCheck')
 
 router.post('/users',async (req,res)=>{
     const user = new User(req.body)
@@ -18,7 +19,7 @@ router.post('/users',async (req,res)=>{
     }
 })
 
-router.post('/user-worker' ,authCheck, async (req,res)=>{
+router.post('/user-worker' ,authCheck, numberCheck, async (req,res)=>{
      const user = await User.findOne({googleID : req.user.googleID})
      user.email=req.body.email
      user.address=req.body.address
@@ -37,18 +38,19 @@ router.post('/user-worker' ,authCheck, async (req,res)=>{
     res.redirect('/users/profile')
 })
 
-router.post('/user-recruiter' ,authCheck, async (req,res)=>{
-    const user = await User.findOne({googleID : req.user.googleID})
-    user.email=req.body.email
-    user.address=req.body.address
-    user.contact1=req.body.contact1
-    if(req.body.contact2)
-    user.contact2=req.body.contact2
-    user.type="recruiter"
-    req.user=user
-    user.profileComplete=true
-    await user.save()
-    res.redirect('/users/profile')
+router.post('/user-recruiter' ,authCheck, numberCheck, async (req,res)=>{
+    
+        const user = await User.findOne({googleID : req.user.googleID})
+        user.email=req.body.email
+        user.address=req.body.address
+        user.contact1=req.body.contact1
+        if(req.body.contact2)
+        user.contact2=req.body.contact2
+        user.type="recruiter"
+        req.user=user
+        user.profileComplete=true
+        await user.save()
+        res.redirect('/users/profile')
 })
 
 router.get('/about-us',(req,res)=>{

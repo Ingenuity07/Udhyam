@@ -1,7 +1,8 @@
 const {startVerification} = require('../utils/verify')
+const { isOtpCheck } = require('../../config/config')
 const otpCheck = (req, res, next) => {
 
-    if(!req.user.verified ){
+    if(isOtpCheck && !req.user.verified ){
        
             console.log('OTP',req.user)
             startVerification(req.user.contact1)

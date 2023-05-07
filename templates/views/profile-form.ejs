@@ -103,6 +103,11 @@
           
           <!-- <input type="submit" name="" value="Login" /><br /> -->
         </div>
+        
+        <% if(user.message){ %>
+          <h2> <%=user.message%> </h2>
+        <% }  %>
+        
         <div class="col-md-9 register-right">
           <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
             
