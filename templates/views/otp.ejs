@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="/img/logo.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Get Started | udhyam</title>
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/css/login-style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+</head>
+<body>
+<div>
+    <nav class="navbar navbar-default navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="/">
+          <img src="/img/logo.png" width="25" height="25" class="logo"
+        /></a>
+        <a class="navbar-brand" id="lol" href="/">Udhyam</b></a>
+        <button
+          type="button"
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarCollapse"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          id="navbarCollapse"
+          class="navbar-collapse justify-content-start collapse in"
+          aria-expanded="true"
+        >
+          <ul class="nav navbar-nav">
+            <li class="nav-item">
+              <a
+                href="/about-us"
+                class="nav-link"
+                id="node"
+                >About</a
+              >
+            </li>
+          </ul>
+          
+        </div>
+      </nav>
+</div>
+
+  
+
+<br><br><br><br><br><br>
+<div class="container" id="c1">
+    <ul class="form-wrapper" >					
+        <li type="none" >
+           
+          <div style="background-color: black; padding:20px; border-radius:5px" >
+            <h2 style="color: white" >Verify Number</h2>
+             <p style="color: white" >Enter OTP Sent to this number <%=context.contact1%></p>
+             <form action="/auth/verify-otp" method ="post" >  
+              <input type="hidden" name="username" value=<%=context.username%> />
+              <input type="hidden" name="password" value=<%=context.password%> />
+              <input type="hidden" name="contact1" value=<%=context.contact1%> />
+              <input style="color: white" type="password" placeholder="OTP" name="otp"/>
+              
+              <button class="button_login">Submit</button>
+              </form>
+              </div>
+        </li>
+    </ul>
+</div>
+
+
+<br><br><br><br><br><br><!-- <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-up" aria-hidden="true"></i></button> -->
+<footer class="footer1" id="contact/to/us">
+    <div class="container">
+      <div class="" style="display: flex;">
+        <div class="col-xl-4">
+          <a href="https://github.com/Initiaters" style="color: white" target="_blank"
+            ><i class="fa fa-github" aria-hidden="true"></i> Visit us
+          </a>
+        </div>
+        <div class="col-xl-4">
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=get.udhyam@gmail.com&su=SUBJECT&body=BODY"
+            style="color: white"
+            target="_blank"
+            ><i
+              class="fa fa-envelope"
+              aria-hidden="false"
+              style="color: white"
+            ></i>
+            Mail</a
+          >
+        </div>
+        <div class="col-xl-4">
+          <a
+            href="#terms&conditions"
+            onclick="document.getElementById('modal-wrapper1').style.display='block'"
+            style="color: white"
+            ><i
+              class="fa fa-laptop"
+              aria-hidden="false"
+              style="color: white"
+            ></i>
+            Terms &amp; Conditions</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="">
+        <div class="col-xl-12" style="color:white">Copyright © 2023 Udhyam</div>
+      </div>
+    </div>
+  </footer>
+ <script src="/js/homepage.js"></script>
+</body>
+</html>

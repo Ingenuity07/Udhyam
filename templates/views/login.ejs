@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="/img/logo.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Get Started | udhyam</title>
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/css/login-style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+</head>
+<body>
+<div>
+    <nav class="navbar navbar-default navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="/">
+          <img src="/img/logo.png" width="25" height="25" class="logo"
+        /></a>
+        <a class="navbar-brand" id="lol" href="/">Udhyam</b></a>
+        <button
+          type="button"
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarCollapse"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          id="navbarCollapse"
+          class="navbar-collapse justify-content-start collapse in"
+          aria-expanded="true"
+        >
+          <ul class="nav navbar-nav">
+            <li class="nav-item">
+              <a
+                href="/about-us"
+                class="nav-link"
+                id="node"
+                >About</a
+              >
+            </li>
+          </ul>
+          
+        </div>
+      </nav>
+</div>
+
+  <div id="modal-wrapper1" class="modal">
+    <form class="modal-content animate" id="m1">
+      <h3 style="color: #254e58">Terms and Conditions</h3>
+      <h4>Welcome to udhyam!</h4>
+      <p>
+        By accessing this app we assume you accept the following terms and conditions.
+Do not continue to use udhyam if you do not agree to take all of the terms and conditions stated on this page.
+You may access udhyam for your own personal use subjected to restrictions set in the following terms and conditions.
+<br>
+Workers and recruiters must:<br>
+->not provide fake information.<br>
+->Register themselves on our app by providing a valid proof.<br>
+->Provide the absolute information about himself/herself as well as about their work.<br>
+->Update the provided information regularly.<br>
+<br>
+Workers and recruiters should not:<br>
+->Misuse the information from udhyam app.<br>
+->Reproduce, duplicate or copy material from udhyam.<br>
+<br>
+Content Liability:<br>
+We shall not be hold responsible for any content that appears on the app, as it would be as per provided by the workers and recruiters.<br>
+<br>
+Disclaimer:<br>
+To the maximum extent permitted by applicable law, we exclude all representations, warranties and conditions relating to our app, and the use of this app. Nothing in this disclaimer would be:<br>
+->responsible for your any personal injury<br>
+->responsible for fraud or fraudulent misrepresentation<br>
+As long as the app and the information and services are provided free of charge, we will not be responsible for any loss or damage of any nature.<br>
+      </p>
+      <span
+        onclick="document.getElementById('modal-wrapper1').style.display='none'"
+        class="close"
+        title="Close PopUp"
+        >&times;</span
+      >
+    </form>
+  </div>
+
+<!-- <br><br><br><br><br><br> -->
+<div class="container" id="c1">
+    <ul class="form-wrapper" >	
+    
+        <li type="none" >
+        <div style="background-color: black; padding:20px; border-radius:5px" >
+            <form action="/post" method="post" >
+              <div style="display:flex;justify-content: center;align-items: center;margin-bottom: 5px;" >
+                <img 
+                src="/img/logo.PNG" alt="logo"
+                style="width: 70px;
+                      height: 65px;
+                      /* margin-left: 60px;
+                      margin-bottom: 15px; */
+                      "
+                />
+                <a class="navbar-brand" id="lol" href="/"
+                style="font-weight: 600;font-size: 40px;"
+                >
+                  Udhyam</b>
+                </a>
+              </div>
+              <p 
+                class="hint-text" 
+                style="text-align: center; font-size: 20px; font-weight: bold; color: white;"
+              >
+                There's no need to remember a username or password, all you need is a Google Account. 
+              </p>
+              <div class="col s12 m6 offset-m3 center-align" style="margin-bottom: 5px;">
+                <a 
+                  class="oauth-container btn darken-4 white-text" 
+                  href="/auth/google" 
+                  style="text-transform:none;background-color: #0c67df;padding-left:5px;"
+                >
+                  <img 
+                    width="20px" 
+                    style=" margin-right:8px;padding:1px;width:25px;height:25px;background-color: white;" alt="Google sign-in" 
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" 
+                  />
+                  Sign in with Google
+                </a>
+              </div>
+              
+              
+              <p class="hint-text" style="text-align: center; font-weight: bold; color: white;">Do not have Google account? <a style="text-decoration: none;" target="_blank "href="https://accounts.google.com/signup/v2/webcreateaccount?hl=en&flowName=GlifWebSignIn&flowEntry=SignUp">Create one here.</a></p>
+            </form>
+            
+            <h2 style="color: white" >Register</h2>
+            
+            <% if(message){ %>
+              <h2> <%=message%> </h2>
+            <% }  %>
+            
+            <form action="/auth/otp" method ="post" >
+  
+              <input type="text" placeholder="Name" name="username" class="input_login"/>
+              
+              <input type="text" placeholder="Number" name="contact1" class="input_login"/>
+              
+              <input type="password" placeholder="Password" name="password" class="input_login"/>
+              
+              <button class="button_login">Submit</button>
+              </form>
+              
+              <h2 style="color: white" >Login</h2>
+              <form action="/auth/local-login" method="post">
+  
+      
+                <input type="text" placeholder="Email" name="contact1" class="input_login"/>
+                
+                <input type="password" placeholder="Password" name="password" class="input_login"/>
+                
+                <button class="button_login">Submit</button>
+                </form>
+            
+              </div>
+           
+            
+        </li>
+    </ul>
+</div>
+
+
+<br><br><br><br><br><br><!-- <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-up" aria-hidden="true"></i></button> -->
+<footer class="footer1" id="contact/to/us">
+    <div class="container">
+      <div class="" style="display: flex;">
+        <div class="col-xl-4">
+          <a href="https://github.com/Initiaters" style="color: white" target="_blank"
+            ><i class="fa fa-github" aria-hidden="true"></i> Visit us
+          </a>
+        </div>
+        <div class="col-xl-4">
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=get.udhyam@gmail.com&su=SUBJECT&body=BODY"
+            style="color: white"
+            target="_blank"
+            ><i
+              class="fa fa-envelope"
+              aria-hidden="false"
+              style="color: white"
+            ></i>
+            Mail</a
+          >
+        </div>
+        <div class="col-xl-4">
+          <a
+            href="#terms&conditions"
+            onclick="document.getElementById('modal-wrapper1').style.display='block'"
+            style="color: white"
+            ><i
+              class="fa fa-laptop"
+              aria-hidden="false"
+              style="color: white"
+            ></i>
+            Terms &amp; Conditions</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="">
+        <div class="col-xl-12" style="color:white">Copyright © 2023 Udhyam</div>
+      </div>
+    </div>
+  </footer>
+ <script src="/js/homepage.js"></script>
+</body>
+</html>
