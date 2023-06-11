@@ -20,7 +20,6 @@ passport.use(
       },async (contact1,password,done)=>{
         
         try{
-        
             console.log(contact1,password)
         
             const user = await User.findOne({contact1})

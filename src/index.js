@@ -3,6 +3,8 @@ const path = require('path')
 const cookieSession = require('cookie-session')
 const passport = require('passport')
 
+// Routes for differnt pages and endpoints
+
 const userRouter= require('./routers/user-router')
 const jobRouter= require('./routers/job-router')
 const authRoutes = require('./routers/auth-router');

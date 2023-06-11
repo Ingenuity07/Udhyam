@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "env-cmd -f ./config/dev.env nodemon src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "env-cmd -f ./dev.env nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" "
   },
   "keywords": [],
   "author": "",
@@ -23,6 +23,7 @@
     "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0",
     "passport-local": "^1.0.0",
+    "request": "^2.88.2",
     "twilio": "^4.10.0",
     "validator": "^13.1.1"
   },
