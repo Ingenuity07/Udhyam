@@ -23,18 +23,22 @@ router.post('/user-worker' ,authCheck, numberCheck, async (req,res)=>{
      const user = await User.findOne({googleID : req.user.googleID})
      user.email=req.body.email
      user.address=req.body.address
+     
+     const coordinates = await geocode(req.body.address)
+     user.coordinates = coordinates
      user.contact1=req.body.contact1
      if(req.body.contact2)
      user.contact2=req.body.contact2
      user.type="worker"
      user.profileComplete=true
-     user.verified=false
+    //  user.verified=false
      const jobs = ['Painter','Gardener','Maid','Watchman']
      jobs.forEach((job)=>{
          if((job in req.body) && !user.jobTypes.includes(job)) user.jobTypes.push(job)
      })
-     
+     console.log(user,"worker form")
      req.user=user
+     console.log(req.user,"req worker form")
      await user.save()
     res.redirect('/users/profile')
 })
@@ -50,19 +54,22 @@ router.post('/user-recruiter' ,authCheck, numberCheck, async (req,res)=>{
         user.type="recruiter"
         req.user=user
         user.profileComplete=true
-        user.verified=false
+        // user.verified=false
         await user.save()
         res.redirect('/users/profile')
 })
 
-router.get('/about-us',(req,res)=>{
+router.get('/about-us',(req,res)=>{    
     res.render('about-us',{user:req.user})
 })
 router.get('/users/profile/update' , authCheck,(req,res)=>{
     res.render('profile-form',{user:req.user})
 })
 
-router.get('/users/profile' , authCheck ,profileCheck, otpCheck ,(req,res)=>{
+router.get('/users/profile' , authCheck ,profileCheck, otpCheck ,(req,res)=>{         // Route to get User profile details
+
+
+    
    res.render('profile',{user:req.user})
 })
 
@@ -71,7 +78,7 @@ router.get('/users/jobs', authCheck , profileCheck , async (req,res)=>{
      res.render('myjobs',{ user:req.user , jobs:jobs})
 });
 
-router.get('/users/dashboard', authCheck , profileCheck , async (req,res)=>{
+router.get('/users/dashboard', authCheck , profileCheck , async (req,res)=>{          // Route to render user's dashboard
     
     if(req.user.type == "worker"){
         const jobs = await Job.find({})
@@ -91,7 +98,7 @@ router.get('/users/dashboard', authCheck , profileCheck , async (req,res)=>{
         res.render('dashboard',{ jobs:jobs,workers:workers, recruiters:recruiters ,user:req.user})
     }
 });
-router.post('/users/dashboard/filter',authCheck , profileCheck , async (req,res)=>{
+router.post('/users/dashboard/filter',authCheck , profileCheck , async (req,res)=>{     // Route to Filter the results on dashboard
     const filters = []
     for(var propt in req.body) {
         filters.push(propt)

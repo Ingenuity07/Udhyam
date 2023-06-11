@@ -1,15 +1,19 @@
 const express= require('express')
 const mongoose = require('mongoose')
 const Job = require('../models/job-model')
+const geocode = require('../geo-sorting/geocode')
 const router = express.Router()
 
 
-router.post('/users/newjobs/jobs' , async (req,res)=>{
+router.post('/users/newjobs/jobs' , async (req,res)=>{      // Route to create a new job via Recruiter
    
-    await Job.findOne( { jobType:req.body.jobType , ownerID:req.user.googleID } ) .then((currentJob)=>{
+    await Job.findOne( { jobType:req.body.jobType , ownerID:req.user.googleID } ) .then(async (currentJob)=>{
         if(currentJob)
              res.redirect('/users/jobs') 
         else {
+            
+            const coordinates = await geocode(req.user.address)
+            console.log(coordinates)
             new Job({
                 jd:req.body.jd,
                 jobType:req.body.jobType,    
@@ -17,6 +21,7 @@ router.post('/users/newjobs/jobs' , async (req,res)=>{
                 contact:req.user.contact1,
                 ownerName:req.user.username,
                 ownerAddress:req.user.address,
+                coordinates:coordinates,
                 email:req.user.email
              }).save().then( 
                 res.redirect('/users/jobs')    
@@ -25,7 +30,7 @@ router.post('/users/newjobs/jobs' , async (req,res)=>{
     })
 })
 
-router.post('/jobs/delete', async (req,res)=>{
+router.post('/jobs/delete', async (req,res)=>{            // Route to Delete a job via Recruiter or Admin
     console.log(req.body);
     try{
       await Job.findOneAndDelete( { _id: mongoose.Types.ObjectId(req.body._id) } )
