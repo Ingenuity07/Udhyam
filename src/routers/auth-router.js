@@ -8,26 +8,26 @@ router.get('/login',(req,res)=>{
     res.render('login',{message:""});
 })
 
-router.get('/admin-login',(req,res)=>{
+router.get('/admin-login',(req,res)=>{                // Route for admin login
     res.render('admin-login',{message:""});
 })
 
-router.get('/signup',(req,res)=>{
+router.get('/signup',(req,res)=>{                     // Route for registering new user
     res.render('signup',{user:req.user});
 })
 
-router.get('/logout',(req,res)=>{
+router.get('/logout',(req,res)=>{                     // Route for logging out current user
     req.logout();
     res.redirect('/');
 })
 
-router.get('/google', passport.authenticate(
+router.get('/google', passport.authenticate(          // Google Authentication login route
     'google' ,{
         scope : ['profile' , 'email']
     }
 ))
 
-router.get('/google/redirect', passport.authenticate('google') ,(req,res)=>{
+router.get('/google/redirect', passport.authenticate('google') ,(req,res)=>{          // Redirect route when google auth completes
     res.redirect('/users/profile')
 })
 

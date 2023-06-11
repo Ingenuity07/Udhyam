@@ -62,7 +62,7 @@ router.get('/users/profile/update' , authCheck,(req,res)=>{
     res.render('profile-form',{user:req.user})
 })
 
-router.get('/users/profile' , authCheck ,profileCheck, otpCheck ,(req,res)=>{
+router.get('/users/profile' , authCheck ,profileCheck, otpCheck ,(req,res)=>{         // Route to get User profile details
 
 
     
@@ -74,7 +74,7 @@ router.get('/users/jobs', authCheck , profileCheck , async (req,res)=>{
      res.render('myjobs',{ user:req.user , jobs:jobs})
 });
 
-router.get('/users/dashboard', authCheck , profileCheck , async (req,res)=>{
+router.get('/users/dashboard', authCheck , profileCheck , async (req,res)=>{          // Route to render user's dashboard
     
     if(req.user.type == "worker"){
         const jobs = await Job.find({})
@@ -94,7 +94,7 @@ router.get('/users/dashboard', authCheck , profileCheck , async (req,res)=>{
         res.render('dashboard',{ jobs:jobs,workers:workers, recruiters:recruiters ,user:req.user})
     }
 });
-router.post('/users/dashboard/filter',authCheck , profileCheck , async (req,res)=>{
+router.post('/users/dashboard/filter',authCheck , profileCheck , async (req,res)=>{     // Route to Filter the results on dashboard
     const filters = []
     for(var propt in req.body) {
         filters.push(propt)

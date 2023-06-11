@@ -3,11 +3,7 @@ const authToken = process.env.authToken
 const verifySid = process.env.verifySid
 const client = require("twilio")(accountSid, authToken);
 
-
-
-
-console.log(accountSid, authToken, verifySid)
-
+//This function is used to send the OTP to the users mobile device
 const startVerification = (to)=> (new Promise(async (resolve,reject) =>{
     
     console.log("verifiction")
@@ -19,6 +15,8 @@ const startVerification = (to)=> (new Promise(async (resolve,reject) =>{
                     reject()})
 }))
 
+
+//This function is used to verify the sent OTP and entered OTP by the user
 const verifyOTP = (to, code) => (new Promise((resolve,reject)=>{
    
     client.verify.v2

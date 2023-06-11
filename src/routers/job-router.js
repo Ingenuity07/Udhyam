@@ -4,7 +4,7 @@ const Job = require('../models/job-model')
 const router = express.Router()
 
 
-router.post('/users/newjobs/jobs' , async (req,res)=>{
+router.post('/users/newjobs/jobs' , async (req,res)=>{      // Route to create a new job via Recruiter
    
     await Job.findOne( { jobType:req.body.jobType , ownerID:req.user.googleID } ) .then((currentJob)=>{
         if(currentJob)
@@ -25,7 +25,7 @@ router.post('/users/newjobs/jobs' , async (req,res)=>{
     })
 })
 
-router.post('/jobs/delete', async (req,res)=>{
+router.post('/jobs/delete', async (req,res)=>{            // Route to Delete a job via Recruiter or Admin
     console.log(req.body);
     try{
       await Job.findOneAndDelete( { _id: mongoose.Types.ObjectId(req.body._id) } )
