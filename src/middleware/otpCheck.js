@@ -14,4 +14,7 @@ const otpCheck = (req, res, next) => {
         next();
     }
 }
+
+
+
 module.exports = otpCheck
